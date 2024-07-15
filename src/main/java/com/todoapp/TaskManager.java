@@ -5,10 +5,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TaskList {
+public class TaskManager {
   List<Task> taskList;
 
-  public TaskList() {
+  public TaskManager() {
     this.taskList = new ArrayList<>();
   }
 
@@ -109,8 +109,9 @@ public class TaskList {
   }
 
   private void deleteTask(int taskId) {
-    List<Task> filteredTaskList = taskList.stream().filter(task -> task.id != taskId).collect(Collectors.toList());
-    setTaskList(filteredTaskList);
+    //    List<Task> filteredTaskList = taskList.stream().filter(task -> task.id != taskId).collect(Collectors.toList()); // me
+    //    setTaskList(filteredTaskList); // me
+    taskList.removeIf(task -> task.getId() == taskId); // better
   }
 
   private int generateNextId() {

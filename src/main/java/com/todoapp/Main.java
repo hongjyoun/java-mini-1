@@ -1,12 +1,10 @@
 package com.todoapp;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.function.Function;
 
 public class Main {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    TaskList manageTasks = new TaskList();
+    TaskManager taskManager = new TaskManager();
 
     System.out.println("=============== Todo List ===============");
     while (true) {
@@ -20,29 +18,29 @@ public class Main {
 
       switch (command) {
         case "exit":
-          manageTasks.printExit();
+          taskManager.printExit();
           isExit = true;
           break;
         case "help":
-          manageTasks.printHelp();
+          taskManager.printHelp();
           break;
         case "list":
-          manageTasks.showAllList();
+          taskManager.showAllList();
           break;
         case "add":
-          manageTasks.printAddTask(commandParts);
+          taskManager.printAddTask(commandParts);
           break;
         case "find":
-          manageTasks.printFoundTask(commandParts);
+          taskManager.printFoundTask(commandParts);
           break;
         case "done":
-          manageTasks.printToDoneById(commandParts);
+          taskManager.printToDoneById(commandParts);
           break;
         case "delete":
-          manageTasks.printDelete(commandParts);
+          taskManager.printDelete(commandParts);
           break;
         default:
-          manageTasks.printError();
+          taskManager.printError();
       }
       if(isExit) break;
     }
